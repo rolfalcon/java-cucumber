@@ -1,6 +1,7 @@
 // Created by Viacheslav (Slava) Skryabin 04/01/2018
 package definitions;
 
+import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -44,6 +45,7 @@ public class PredefinedStepDefs {
     @Then("^element with xpath \"([^\"]*)\" should be present$")
     public void elementWithXpathShouldBePresent(String xpath) {
         assertThat(getDriver().findElements(By.xpath(xpath))).hasSize(1);
+
     }
 
     @Then("^element with xpath \"([^\"]*)\" should not be present$")
@@ -185,5 +187,38 @@ public class PredefinedStepDefs {
         executor.executeScript("window.scrollBy(0, " + offset + ");", element);
         Thread.sleep(500);
     }
-
+//    @And("^I go back and forward, then refresh the page$")
+//    public void iGoBackAndForwardThenRefreshThePage() {
+//        getDriver().navigate().back();
+//        getDriver().navigate().forward();
+//        getDriver().navigate().refresh();
+//    }
+//
+//    @And("^I print page details$")
+//    public void iPrintPageDetails() {
+//        System.out.println(getDriver().getTitle());
+//    }
+//
+//    @Given("^I go to \"([^\"]*)\" page$")
+//    public void iGoToPage(String arg0) throws Throwable {
+//        String url = "https://www." + arg0 + ".com";
+//        getDriver().get(url);
+//
+//
+//    }
+//
+//    @And("^I change the resolution to \"([^\"]*)\"$")
+//    public void iChangeTheResolutionTo(String resolution) throws Throwable {
+//        // Write code here that turns the phrase above into concrete actions
+//        switch (resolution){
+//            case "phone" :
+//                getDriver().manage().window().setSize(new Dimension(400, 768));
+//                break;
+//            case "desktop":
+//            default:
+//                getDriver().manage().window().setSize(new Dimension(1024, 768));
+//                break;
+//        }
+//
+//    }
 }
